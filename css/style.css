@@ -3,19 +3,17 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
 }
-
-/* NAVBAR */
 .navbar {
-    background: green;
-    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: black;
+    padding: 10px 20px;
 }
 
-.logo {
+.navbar .logo {
     color: white;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -27,79 +25,8 @@ body {
     padding: 0;
 }
 
-.navbar li {
-    margin: 0;
-    padding: 0;
-}
-
-.navbar a {
-    color: white;
+.navbar ul li a {
+    color: yellow;
     text-decoration: none;
     font-weight: bold;
-}
-
-.navbar a:hover {
-    text-decoration: underline;
-}
-
-/* PAGE CONTENT */
-.container {
-    max-width: 900px;
-    margin: 30px auto;
-    text-align: center;
-    padding: 20px;
-}
-
-/* CARDS */
-.card {
-    background: white;
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-/* FORMS */
-input {
-    width: 250px;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* BUTTONS */
-button {
-    padding: 10px 20px;
-    background: green;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: darkgreen;
-}
-
-/* PROGRESS LIST ONLY */
-#progressList {
-    padding: 0;
-}
-
-#progressList li {
-    list-style: none;
-    background: white;
-    margin: 10px auto;
-    padding: 10px;
-    width: 80%;
-    border-radius: 5px;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-}
-
-/* GRAPH */
-canvas {
-    max-width: 800px;
-    margin: 20px auto;
 }
