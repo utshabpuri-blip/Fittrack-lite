@@ -31,29 +31,30 @@
     </div>
 
     <script>
-        function login(event) {
-            event.preventDefault();
+function login(event) {
+    event.preventDefault();
 
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-            // get stored user
-            const savedEmail = localStorage.getItem("userEmail");
-            const savedPassword = localStorage.getItem("userPassword");
+    const savedEmail = localStorage.getItem("userEmail");
+    const savedPassword = localStorage.getItem("userPassword");
 
-            if (email === savedEmail && password === savedPassword) {
+    console.log("Saved:", savedEmail, savedPassword);
+    console.log("Entered:", email, password);
 
-                localStorage.setItem("loggedIn", "true");
+    if (email === savedEmail && password === savedPassword) {
+        localStorage.setItem("loggedIn", "true");
 
-                alert("Login successful!");
+        alert("Login successful!");
 
-                window.location.href = "dashboard.html";
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Invalid email or password");
+    }
+}
+</script>
 
-            } else {
-                alert("Invalid email or password");
-            }
-        }
-    </script>
 
 </body>
 </html>
