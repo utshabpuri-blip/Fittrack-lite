@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Progress Tracker - FitTrack</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">FitTrack 💪</div>
+
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="workout.html">Workout</a></li>
+            <li><a href="progress.html">Progress</a></li>
+            <li><a href="bmi.html">BMI</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <h1>Progress Tracker 📈</h1>
+
+        <form id="progressForm">
+
+            <input
+                type="number"
+                id="weight"
+                placeholder="Weight (kg)"
+                required>
+
+            <br><br>
+
+            <input
+                type="date"
+                id="date"
+                required>
+
+            <br><br>
+
+            <button type="submit">
+                Save Progress
+            </button>
+
+        </form>
+
+        <h2>Weight History</h2>
+
+        <ul id="progressList"></ul>
+
+        <h2>Weight Progress Graph</h2>
+
+        <canvas id="weightChart"></canvas>
+
+    </div>
+
+    <script>
+
+        const form =
+            document.getElementById("progressForm");
+
+        const list =
+            document.getElementById("progressList");
+
+        let progressData =
+            JSON.parse(
+                localStorage.getItem("progress")
+            ) || [];
+
+        function render() {
+
+            list.innerHTML = "";
+
+            let labels = [];
+            let weights = [];
+
+            progressData.forEach(item => {
+
+                const li =
+                    document.createElement("li");
+
+                li.textContent =
+                    item.weight +
+                    " kg (" +
+                    item.date +
+                    ")";
+
+                list.appendChild(li);
+
+                labels.push(item.date);
+                weights.push(item.weight);
+            });
+
+            drawChart(labels, weights);
+        }
+
+        function drawChart(labels, weights) {
+
+            const ctx =
+                document
+                .getElementById("weightChart")
+                .getContext("2d");
+
+            if (window.myChart) {
+                window.myChart.destroy();
+            }
+
+            window.myChart =
+                new Chart(ctx, {
+
+                type: "line",
+
+                data: {
+
+                    labels: labels,
+
+                    datasets: [{
+                        label: "Weight (kg)",
+                        data: weights,
+                        tension: 0.3
+                    }]
+                },
+
+                options: {
+                    responsive: true
+                }
+
+            });
+        }
+
+        render();
+
+        form.addEventListener(
+            "submit",
+            function(e) {
+
+                e.preventDefault();
+
+                const weight =
+                    document
+                    .getElementById("weight")
+                    .value;
+
+                const date =
+                    document
+                    .getElementById("date")
+                    .value;
+
+                progressData.push({
+                    weight: Number(weight),
+                    date: date
+                });
+
+                localStorage.setItem(
+                    "progress",
+                    JSON.stringify(progressData)
+                );
+
+                render();
+
+                form.reset();
+            }
+        );
+
+    </script>
+
+</body>
+</html>

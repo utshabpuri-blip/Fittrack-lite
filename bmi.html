@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator - FitTrack</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">FitTrack 💪</div>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="workout.html">Workout</a></li>
+            <li><a href="progress.html">Progress</a></li>
+            <li><a href="bmi.html">BMI</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>BMI Calculator</h1>
+
+        <input type="number" id="weight" placeholder="Weight (kg)">
+        <br><br>
+
+        <input type="number" id="height" placeholder="Height (cm)">
+        <br><br>
+
+        <button onclick="calculateBMI()">Calculate BMI</button>
+
+        <h2 id="result"></h2>
+        <h3 id="status"></h3>
+    </div>
+
+    <script>
+        function calculateBMI() {
+            let weight = parseFloat(document.getElementById("weight").value);
+            let height = parseFloat(document.getElementById("height").value);
+
+            if (!weight || !height) {
+                document.getElementById("result").innerText =
+                    "Please enter valid values.";
+                return;
+            }
+
+            height = height / 100;
+
+            let bmi = weight / (height * height);
+
+            document.getElementById("result").innerText =
+                "Your BMI: " + bmi.toFixed(2);
+
+            let status = "";
+
+            if (bmi < 18.5) {
+                status = "Underweight";
+            } else if (bmi < 25) {
+                status = "Normal Weight";
+            } else if (bmi < 30) {
+                status = "Overweight";
+            } else {
+                status = "Obese";
+            }
+
+            document.getElementById("status").innerText =
+                "Category: " + status;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FitTrack Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <h1>FitTrack Dashboard 💪</h1>
+
+    <div class="card">
+        <h2>Total Workouts</h2>
+        <p id="totalWorkouts">0</p>
+    </div>
+
+    <div class="card">
+        <h2>Latest Workout</h2>
+        <p id="latestWorkout">No workouts yet</p>
+    </div>
+
+    <div class="card">
+        <h2>Quick Actions</h2>
+
+        <p><a href="workout.html">🏋️ Workout Tracker</a></p>
+
+        <p><a href="progress.html">📈 Progress Tracker</a></p>
+
+        <p><a href="bmi.html">⚖️ BMI Calculator</a></p>
+
+    </div>
+
+    <script>
+        let workouts =
+            JSON.parse(localStorage.getItem("workouts")) || [];
+
+        document.getElementById("totalWorkouts").innerText =
+            workouts.length;
+
+        if (workouts.length > 0) {
+            document.getElementById("latestWorkout").innerText =
+                workouts[workouts.length - 1];
+        }
+    </script>
+
+</body>
+</html>

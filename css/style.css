@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* NAVBAR */
+.navbar {
+    background: green;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* PAGE CONTENT */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 80%;
+}
+
+/* FORMS */
+input {
+    width: 250px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* BUTTONS */
+button {
+    padding: 10px 20px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkgreen;
+}
+
+/* LISTS */
+ul {
+    padding-left: 0;
+}
+
+li {
+    list-style: none;
+    background: white;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}

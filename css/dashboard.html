@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>FitTrack Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+```
+<nav class="navbar">
+    <div class="logo">FitTrack 💪</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="workout.html">Workout</a></li>
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="bmi.html">BMI</a></li>
+        <li><a href="login.html">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+
+    <h1>Welcome Back 👋</h1>
+
+    <div class="card">
+        <h2>Total Workouts</h2>
+        <p id="totalWorkouts">0</p>
+    </div>
+
+    <div class="card">
+        <h2>Latest Workout</h2>
+        <p id="latestWorkout">No workouts yet</p>
+    </div>
+
+    <div class="card">
+        <h2>Quick Actions</h2>
+
+        <p>
+            <a href="workout.html">
+                <button>Add Workout</button>
+            </a>
+        </p>
+
+        <p>
+            <a href="progress.html">
+                <button>View Progress</button>
+            </a>
+        </p>
+
+        <p>
+            <a href="bmi.html">
+                <button>BMI Calculator</button>
+            </a>
+        </p>
+    </div>
+
+</div>
+
+<script>
+    let workouts = JSON.parse(localStorage.getItem("workouts")) || [];
+
+    document.getElementById("totalWorkouts").innerText = workouts.length;
+
+    if (workouts.length > 0) {
+        document.getElementById("latestWorkout").innerText =
+            workouts[workouts.length - 1];
+    }
+</script>
+```
+
+</body>
+</html>
