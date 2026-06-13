@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - FitTrack</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="checkLogin()">
+
+    <nav class="navbar">
+        <div class="logo">FitTrack 💪</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Dashboard</h1>
+
+        <h2>Welcome, <span id="user"></span> 👋</h2>
+
+        <p>You are successfully logged in to FitTrack.</p>
+    </div>
+
+    <script>
+        function checkLogin() {
+            const loggedIn = localStorage.getItem("loggedIn");
+
+            if (loggedIn !== "true") {
+                alert("Please login first!");
+                window.location.href = "login.html";
+            }
+
+            const name = localStorage.getItem("userName");
+            document.getElementById("user").innerText = name || "User";
+        }
+
+        function logout() {
+            localStorage.removeItem("loggedIn");
+            alert("Logged out successfully!");
+            window.location.href = "login.html";
+        }
+    </script>
+
+</body>
+</html>
