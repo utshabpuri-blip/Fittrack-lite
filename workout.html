@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
     <title>Workout Tracker - FitTrack</title>
@@ -6,69 +7,84 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">FitTrack 💪</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="workout.html">Workout</a></li>
-            <li><a href="login.html">Logout</a></li>
-        </ul>
-    </nav>
+<nav class="navbar">
+    <div class="logo">FitTrack 💪</div>
+</nav>
 
-    <div class="container">
+<div class="container">
 
-        <h1>Workout Tracker 🏋️</h1>
+```
+<h1>Workout Tracker</h1>
 
-        <form id="workoutForm">
-            <input type="text" id="exercise" placeholder="Exercise Name" required><br><br>
-            <input type="number" id="sets" placeholder="Sets" required><br><br>
-            <input type="number" id="reps" placeholder="Reps" required><br><br>
-            <input type="date" id="date" required><br><br>
+<form id="workoutForm">
 
-            <button type="submit">Add Workout</button>
-        </form>
+    <input type="text"
+           id="workout"
+           placeholder="Enter Workout"
+           required>
 
-        <h2>Workout History</h2>
-        <ul id="workoutList"></ul>
+    <br><br>
 
-    </div>
+    <button type="submit">
+        Add Workout
+    </button>
 
-    <script>
-        const form = document.getElementById("workoutForm");
-        const list = document.getElementById("workoutList");
+</form>
 
-        window.onload = function () {
-            let workouts = JSON.parse(localStorage.getItem("workouts")) || [];
+<h2>Workout History</h2>
 
-            workouts.forEach(w => {
-                const item = document.createElement("li");
-                item.textContent = w;
-                list.appendChild(item);
-            });
-        };
+<ul id="workoutList"></ul>
+```
 
-        form.addEventListener("submit", function(e) {
-            e.preventDefault();
+</div>
 
-            const exercise = document.getElementById("exercise").value;
-            const sets = document.getElementById("sets").value;
-            const reps = document.getElementById("reps").value;
-            const date = document.getElementById("date").value;
+<script>
 
-            const workoutText = `${exercise} - ${sets} sets x ${reps} reps (${date})`;
+let workouts =
+JSON.parse(localStorage.getItem("workouts")) || [];
 
-            const item = document.createElement("li");
-            item.textContent = workoutText;
-            list.appendChild(item);
+const list =
+document.getElementById("workoutList");
 
-            let workouts = JSON.parse(localStorage.getItem("workouts")) || [];
-            workouts.push(workoutText);
-            localStorage.setItem("workouts", JSON.stringify(workouts));
+function render() {
 
-            form.reset();
-        });
-    </script>
+    list.innerHTML = "";
+
+    workouts.forEach(workout => {
+
+        const li =
+        document.createElement("li");
+
+        li.textContent = workout;
+
+        list.appendChild(li);
+    });
+}
+
+render();
+
+document
+.getElementById("workoutForm")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const workout =
+    document.getElementById("workout").value;
+
+    workouts.push(workout);
+
+    localStorage.setItem(
+        "workouts",
+        JSON.stringify(workouts)
+    );
+
+    render();
+
+    this.reset();
+});
+
+</script>
 
 </body>
 </html>

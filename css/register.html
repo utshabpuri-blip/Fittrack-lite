@@ -4,52 +4,43 @@
     <title>Register - FitTrack</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <nav class="navbar">
-        <div class="logo">FitTrack 💪</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Register</a></li>
-        </ul>
-    </nav>
+<nav class="navbar">
+    <div class="logo">FitTrack 💪</div>
+</nav>
 
-    <div class="container">
-        <h1>Register</h1>
+<div class="container">
 
-        <form onsubmit="registerUser(event)">
-            <input type="text" placeholder="Enter Name" required>
-            <br><br>
+    <h1>Create Account</h1>
 
-            <input type="email" placeholder="Enter Email" required>
-            <br><br>
+    <form onsubmit="window.location.href='dashboard.html'; return false;">
 
-            <input type="password" placeholder="Enter Password" required>
-            <br><br>
+        <input type="text"
+               placeholder="Full Name"
+               required>
 
-            <button type="submit">Register</button>
-        </form>
-    </div>
+        <br><br>
 
-    <script>
-function registerUser(event) {
-    event.preventDefault();
+        <input type="email"
+               placeholder="Email"
+               required>
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+        <br><br>
 
-    localStorage.setItem("userName", name);
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("userPassword", password);
+        <input type="password"
+               placeholder="Password"
+               required>
 
-    alert("Registered successfully!");
+        <br><br>
 
-    window.location.href = "login.html";
-}
-</script>
+        <button type="submit">
+            Register
+        </button>
+
+    </form>
+
+</div>
 
 </body>
 </html>
