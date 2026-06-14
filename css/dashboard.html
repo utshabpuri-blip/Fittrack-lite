@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Dashboard - FitTrack</title>
+    <title>FitTrack Dashboard</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -10,74 +10,85 @@
 <nav class="navbar">
     <div class="logo">FitTrack 💪</div>
     <ul>
+        <li><a href="index.html">Home</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="workout.html">Workout</a></li>
-        <li><a href="progress.html">Progress</a></li>
-        <li><a href="bmi.html">BMI</a></li>
+        <li><a href="login.html">Logout</a></li>
     </ul>
 </nav>
 
 <div class="container">
 
-    <h1>Welcome, <span id="user"></span> 👋</h1>
+```
+<h1>FitTrack Dashboard 💪</h1>
 
-    <img
-    src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1000"
-    alt="Fitness Dashboard">
+<img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1000"
+     alt="Fitness Dashboard">
 
-    <div class="stats">
+<div class="stats">
 
-        <div class="card">
-            <h2>🏋️ Workouts</h2>
-            <p>12 Completed</p>
-        </div>
-
-        <div class="card">
-            <h2>🔥 Calories</h2>
-            <p>2450 Burned</p>
-        </div>
-
-        <div class="card">
-            <h2>⚖️ BMI</h2>
-            <p>22.4</p>
-        </div>
-
+    <div class="card">
+        <h2>🏋️ Total Workouts</h2>
+        <p id="totalWorkouts">0</p>
     </div>
 
     <div class="card">
-        <h2>🥗 Healthy Diet Tips</h2>
-
-        <ul>
-            <li>Eat protein with every meal.</li>
-            <li>Drink 2–3 liters of water daily.</li>
-            <li>Eat fruits and vegetables.</li>
-            <li>Avoid sugary drinks.</li>
-            <li>Sleep at least 7–8 hours.</li>
-        </ul>
+        <h2>🔥 Calories Goal</h2>
+        <p>2500 kcal</p>
     </div>
 
     <div class="card">
-        <h2>💪 Daily Motivation</h2>
-        <p>"The body achieves what the mind believes."</p>
+        <h2>⚖️ Healthy BMI</h2>
+        <p>18.5 - 24.9</p>
     </div>
 
 </div>
 
-```
-<h1>Welcome to FitTrack Dashboard</h1>
+<div class="card">
+    <h2>Latest Workout</h2>
+    <p id="latestWorkout">No workouts yet</p>
+</div>
 
 <div class="card">
     <h2>Quick Actions</h2>
 
     <p><a href="workout.html">🏋️ Workout Tracker</a></p>
-
     <p><a href="progress.html">📈 Progress Tracker</a></p>
-
     <p><a href="bmi.html">⚖️ BMI Calculator</a></p>
+</div>
+
+<div class="card">
+    <h2>🥗 Healthy Diet Tips</h2>
+
+    <ul>
+        <li>Eat more fruits and vegetables.</li>
+        <li>Drink 2–3 liters of water daily.</li>
+        <li>Include protein in every meal.</li>
+        <li>Avoid excessive sugar and junk food.</li>
+        <li>Sleep 7–8 hours every night.</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h2>💪 Motivation</h2>
+    <p>"The body achieves what the mind believes."</p>
 </div>
 ```
 
 </div>
 
+<script>
+let workouts =
+    JSON.parse(localStorage.getItem("workouts")) || [];
+
+document.getElementById("totalWorkouts").innerText =
+    workouts.length;
+
+if (workouts.length > 0) {
+    document.getElementById("latestWorkout").innerText =
+        workouts[workouts.length - 1];
+}
+</script>
+
 </body>
 </html>
+
