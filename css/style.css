@@ -70,3 +70,20 @@ button:hover {
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.card h2 {
+    color: green;
+}
+
+.card {
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
