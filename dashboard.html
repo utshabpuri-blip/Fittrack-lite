@@ -6,10 +6,26 @@
 </head>
 <body>
 
+<nav class="navbar">
+    <div class="logo">FitTrack 💪</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="login.html">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+
     <h1>FitTrack Dashboard 💪</h1>
 
+    <img
+    src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200"
+    alt="Fitness Banner"
+    class="dashboard-banner">
+
     <div class="card">
-        <h2>Total Workouts</h2>
+        <h2>🏋️ Total Workouts</h2>
         <p id="totalWorkouts">0</p>
     </div>
 
@@ -22,25 +38,48 @@
         <h2>Quick Actions</h2>
 
         <p><a href="workout.html">🏋️ Workout Tracker</a></p>
-
         <p><a href="progress.html">📈 Progress Tracker</a></p>
-
         <p><a href="bmi.html">⚖️ BMI Calculator</a></p>
-
     </div>
 
-    <script>
-        let workouts =
-            JSON.parse(localStorage.getItem("workouts")) || [];
+    <div class="card">
+        <h2>🥗 Healthy Nutrition</h2>
 
-        document.getElementById("totalWorkouts").innerText =
-            workouts.length;
+        <img
+        src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1000"
+        alt="Healthy Food">
 
-        if (workouts.length > 0) {
-            document.getElementById("latestWorkout").innerText =
-                workouts[workouts.length - 1];
-        }
-    </script>
+        <p>
+            Balanced nutrition fuels your workouts and recovery.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>💪 Today's Motivation</h2>
+
+        <img
+        src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1000"
+        alt="Gym Motivation">
+
+        <p>
+            "Your body can stand almost anything. It's your mind that you have to convince."
+        </p>
+    </div>
+
+</div>
+
+<script>
+let workouts =
+    JSON.parse(localStorage.getItem("workouts")) || [];
+
+document.getElementById("totalWorkouts").innerText =
+    workouts.length;
+
+if (workouts.length > 0) {
+    document.getElementById("latestWorkout").innerText =
+        workouts[workouts.length - 1];
+}
+</script>
 
 </body>
 </html>

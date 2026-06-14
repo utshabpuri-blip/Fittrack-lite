@@ -183,3 +183,38 @@ text-align: center;
 margin-top: 20px;
 font-style: italic;
 }
+
+/* Dashboard Upgrade */
+
+body {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9, #a5d6a7);
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+.dashboard-banner {
+    width: 100%;
+    border-radius: 20px;
+    margin: 20px 0;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.card {
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+    border-radius: 18px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
